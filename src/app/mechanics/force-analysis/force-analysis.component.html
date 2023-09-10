@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th *ngFor="let label of columnLabels">
+      {{label}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of form.controls; index as i">
+    <td *ngFor="let control of row.controls; index as j">
+      <input [formControl]="control" style="width: 70px;"/>
+    </td>
+  </tr>
+</table>
+
+<div>
+  <button mat-button color="primary" (click)="solve()">Solve</button>
+</div>

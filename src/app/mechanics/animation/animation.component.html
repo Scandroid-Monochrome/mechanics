@@ -1,0 +1,40 @@
+<div class="layout">
+  <mat-card class="simulation">
+    <mat-card-content>
+      <h2>3-Pivot 5-Bar Linkage Mechanism</h2>
+      <canvas #myCanvas [width]="screen2D.width" [height]="screen2D.height"></canvas>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="simulation-control">
+    <mat-card-content>
+      <div class="control">
+        <div class="label">
+          <mat-label>{{toggle.checked ? 'Stop' : 'Start'}} Animation</mat-label>
+        </div>
+        <div class="input">
+          <mat-slide-toggle [formControl]="animateCheckBox"
+            (change)="onAnimationToggle($event)" #toggle>
+          </mat-slide-toggle>
+        </div>
+        <div class="label">
+          <mat-label>Adjust Angle</mat-label>
+        </div>
+        <div class="input">
+          <mat-slider min="0" [max]="2*PI" step="0.01" showTickMarks discrete [displayWith]="formatLabel">
+            <input matSliderThumb matInput [(ngModel)]="theta" (change)="onAngleChange($event)" #slider>
+          </mat-slider>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="simulation-result">
+    <mat-card-content>
+      <app-kinematics [renderer]="renderer"></app-kinematics>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="linkage-parameters">
+  </mat-card>
+</div>

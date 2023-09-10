@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="control">
+    <mat-radio-group [(ngModel)]="diagramType" (ngModelChange)="onDiagramChange($event)">
+      <div>
+        <mat-radio-button value="PV">P-V Diagram</mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="PT">P-T Diagram</mat-radio-button>
+      </div>
+    </mat-radio-group>
+  </div>
+  <mat-card class="diagram">
+    <mat-card-content>
+      <h2>Dual Cycle {{diagramType}} Diagram (Ideal Gas)</h2>
+      <canvas #myCanvas [width]="screen2D.width" [height]="screen2D.height"></canvas>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="result">
+    <mat-card-content>
+      TODO
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,56 @@
+.layout {
+  display: grid;
+  grid-template-columns: 650px auto;
+  grid-column-gap: 10px;
+
+  .simulation {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .simulation-control {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .simulation-result {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .linkage-parameters {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .mat-mdc-card {
+    margin: 10px;
+    background-color: #eeeeee;
+  }
+
+  mat-slider {
+    width: 470px;
+  }
+
+  .control {
+    display: grid;
+    grid-template-columns: 110px 1000px;
+    column-gap: 5px;
+
+    .label {
+      grid-column: 1;
+      align-self: center;
+      word-wrap: none;
+    }
+
+    .input {
+      grid-column: 2;
+      align-self: center;
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #000066;
+}
