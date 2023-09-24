@@ -14,14 +14,16 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { DecimalPipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnimationComponent } from './mechanics/animation/animation.component';
+import { KinematicsComponent } from './mechanics/animation/kinematics/kinematics.component';
 import { ForceAnalysisComponent } from './mechanics/force-analysis/force-analysis.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { ThermoComponent } from './thermo/thermo.component';
-import { KinematicsComponent } from './mechanics/animation/kinematics/kinematics.component';
-import { DecimalPipe } from '@angular/common';
+import { Magic15Component } from './ai/magic15/magic15.component';
+import { AiComponent } from './ai/ai.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { DecimalPipe } from '@angular/common';
     MechanicsComponent,
     ForceAnalysisComponent,
     AnimationComponent,
-    KinematicsComponent
+    KinematicsComponent,
+    Magic15Component,
+    AiComponent
   ],
   imports: [
     BrowserModule,

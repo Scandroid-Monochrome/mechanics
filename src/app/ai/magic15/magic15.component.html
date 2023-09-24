@@ -1,0 +1,10 @@
+<table>
+  <tr *ngFor="let i of range">
+    <td *ngFor="let j of range">
+      {{matrix[i][j] ?? ''}}
+    </td>
+  </tr>
+</table>
+<div>
+  <button mat-button color="primary" (click)="refresh()">Refresh</button>
+</div>

@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Subscription, interval } from 'rxjs';
+import { Screen2D } from 'src/app/common/coordinate';
 import { Calculator } from './calculator';
 import { Renderer } from './renderer';
-import { Screen2D } from 'src/app/common/coordinate';
 
 @Component({
   selector: 'app-animation',
@@ -30,6 +30,13 @@ export class AnimationComponent implements AfterViewInit {
     fb: FormBuilder
   ) {
     this.animateCheckBox = fb.control(false);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    console.log(window.innerWidth);
   }
 
   ngAfterViewInit(): void {

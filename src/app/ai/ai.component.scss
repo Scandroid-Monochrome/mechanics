@@ -1,0 +1,13 @@
+.layout-container {
+    display: grid;
+    grid-template-columns: 150px 650px;
+    margin-top: 30px;
+  
+    .side-menu {
+      grid-column: 1;
+    }
+  
+    .content {
+      grid-column: 2;
+    }
+  }

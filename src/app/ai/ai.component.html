@@ -1,0 +1,18 @@
+<div class="layout-container">
+    <div class="side-menu">
+      <mat-action-list>
+        <button mat-list-item (click)="activePage=page" *ngFor="let page of pages">{{page}}</button>
+      </mat-action-list>
+    </div>
+    <div class="content">
+      <ng-container [ngSwitch]="activePage">
+        <ng-container *ngSwitchCase="'Magic 15'">
+          <app-magic15></app-magic15>
+        </ng-container>
+        <ng-container *ngSwitchCase="'Maze'">
+          To Do
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  
