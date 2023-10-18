@@ -1,3 +1,4 @@
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +16,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DecimalPipe } from '@angular/common';
+import { AiComponent } from './ai/ai.component';
+import { Magic15Component } from './ai/magic15/magic15.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnimationComponent } from './mechanics/animation/animation.component';
@@ -22,8 +25,6 @@ import { KinematicsComponent } from './mechanics/animation/kinematics/kinematics
 import { ForceAnalysisComponent } from './mechanics/force-analysis/force-analysis.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { ThermoComponent } from './thermo/thermo.component';
-import { Magic15Component } from './ai/magic15/magic15.component';
-import { AiComponent } from './ai/ai.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AiComponent } from './ai/ai.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    DragDropModule,
     MatSlideToggleModule,
     MatSliderModule,
     MatCardModule,

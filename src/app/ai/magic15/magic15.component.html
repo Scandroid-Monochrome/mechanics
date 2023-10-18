@@ -1,7 +1,9 @@
-<table>
+<table cdkDropList (cdkDropListDropped)="drop($event)">
   <tr *ngFor="let i of range">
     <td *ngFor="let j of range">
-      {{matrix[i][j] ?? ''}}
+      <div cdkDrag>
+        {{matrix(i, j) ?? ''}}
+      </div>
     </td>
   </tr>
 </table>
