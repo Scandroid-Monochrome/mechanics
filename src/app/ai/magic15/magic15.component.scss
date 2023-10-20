@@ -5,3 +5,16 @@ td {
   vertical-align: middle;
   border: 1px solid blue;
 }
+
+td:hover {
+  cursor: grab;
+}
+
+td.active {
+  background-color: #F5FFFF;
+}
+
+td.inactive {
+  background-color: #FFFFFF;
+  cursor: none;
+}  

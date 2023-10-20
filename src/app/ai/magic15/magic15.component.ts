@@ -1,4 +1,3 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
 
@@ -6,16 +5,14 @@ type CellValue = number | null;
 type State = CellValue[];
 
 class Cell {
-  iRow!: number; // row index
-  jCol!: number; // column index
+  constructor(public iRow: number, public jCol: number) {
+  }
 
   static fromStateIndex(k: number) {
-    const cell = new Cell();
+    const jCol = k % Matrix.rank;
+    const iRow = (k - jCol) / Matrix.rank;
 
-    cell.jCol = k % Matrix.rank;
-    cell.iRow = (k - cell.jCol) / Matrix.rank;
-
-    return cell;
+    return new Cell(iRow, jCol);
   }
 
   toStateIndex(): number {
@@ -121,23 +118,24 @@ export class Magic15Component {
     console.log(this.state);
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    let dragIndex = event.previousIndex;
-
+  onClick(i: number, j: number) {
     const emptyCell = Cell.fromStateIndex(this.iEmpty);
-    let dragCell = Cell.fromStateIndex(dragIndex);
+    let thisCell = new Cell(i, j);
+    const thisIndex = thisCell.toStateIndex();
 
-    if (dragIndex === this.iEmpty && dragCell.iRow === emptyCell.iRow) {
-      dragIndex++;
-      dragCell = Cell.fromStateIndex(dragIndex);
+    if (Cell.isAdjacent(emptyCell, thisCell)) {
+      const thisValue = this.state[thisIndex];
+      this.state[this.iEmpty] = thisValue;
+      this.state[thisIndex] = null;
+      this.iEmpty = thisIndex;
     }
+  }
 
-    if (Cell.isAdjacent(emptyCell, dragCell)) {
-      const dragValue = this.state[dragIndex];
-      this.state[this.iEmpty] = dragValue;
-      this.state[dragIndex] = null;
-      this.iEmpty = dragIndex;
-    }
+  cellClass(i: number, j: number) {
+    const emptyCell = Cell.fromStateIndex(this.iEmpty);
+    let thisCell = new Cell(i, j);
+
+    return Cell.isAdjacent(emptyCell, thisCell) ? 'active' : 'inactive';
   }
 }
 
