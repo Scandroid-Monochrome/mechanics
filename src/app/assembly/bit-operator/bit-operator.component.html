@@ -1,18 +1,64 @@
-<table *ngIf="binary$ | async as binary">
-  <tr>
-    <td *ngFor="let i of range">
-      <div>{{binary[i]}}</div>
-    </td>
-  </tr>
-</table>
 <div>
-  <mat-form-field>
-    <input
-      type="number"
-      class="form-control"
-      matInput
-      name="integer"
-      placeholder="Enter an integer"
-      [formControl]="numberInput">
+  <mat-form-field [style.width.px]="150">
+    <mat-label>A</mat-label>
+    <input type="number" matInput [formControl]="numberInput1">
+  </mat-form-field>
+  <mat-form-field [style.width.px]="100">
+    <mat-label>Operator</mat-label>
+    <mat-select [formControl]="binaryOperatorControl">
+      <mat-option *ngFor="let operator of binaryOperators" [value]="operator.value">
+        {{operator.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field [style.width.px]="150">
+    <mat-label>B</mat-label>
+    <input type="number" matInput [formControl]="numberInput2">
+  </mat-form-field>
+  <mat-form-field [style.width.px]="50">
+    <mat-label></mat-label>
+    <input matInput value="=" disabled>
+  </mat-form-field>
+  <mat-form-field [style.width.px]="150">
+    <mat-label>C</mat-label>
+    <input type="number" matInput [value]="number3()" disabled>
   </mat-form-field>
 </div>
+<table>
+  <tr>
+    <th></th>
+    <th colspan="32">Binary Representation</th>
+    <th>Decimal Value</th>
+    <th>Operator</th>
+  </tr>
+  <tr *ngIf="binary1$ | async as binary">
+    <td class="number">A</td>
+    <td *ngFor="let bit of binary">{{bit}}</td>
+    <td class="number">= {{number1()}}</td>
+    <td class="unary-operator">
+      <mat-select [formControl]="unaryOperatorControl1">
+        <mat-option *ngFor="let operator of unaryOperators" [value]="operator.value">
+          {{operator.label}}
+        </mat-option>
+      </mat-select>
+    </td>
+  </tr>
+  <tr *ngIf="binary2$ | async as binary">
+    <td class="number">B</td>
+    <td *ngFor="let bit of binary">{{bit}}</td>
+    <td class="number">= {{number2()}}</td>
+    <td class="unary-operator">
+      <mat-select [formControl]="unaryOperatorControl2">
+        <mat-option *ngFor="let operator of unaryOperators" [value]="operator.value">
+          {{operator.label}}
+        </mat-option>
+      </mat-select>
+    </td>
+  </tr>
+  <tr *ngIf="binary3() as binary">
+    <td class="number">C</td>
+    <td *ngFor="let bit of binary">{{bit}}</td>
+    <td class="number">= {{number3()}}</td>
+    <td class="unary-operator"></td>
+  </tr>
+</table>

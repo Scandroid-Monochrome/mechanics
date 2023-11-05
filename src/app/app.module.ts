@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
@@ -21,13 +22,13 @@ import { AiComponent } from './ai/ai.component';
 import { Magic15Component } from './ai/magic15/magic15.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AssemblyComponent } from './assembly/assembly.component';
+import { BitOperatorComponent } from './assembly/bit-operator/bit-operator.component';
 import { AnimationComponent } from './mechanics/animation/animation.component';
 import { KinematicsComponent } from './mechanics/animation/kinematics/kinematics.component';
 import { ForceAnalysisComponent } from './mechanics/force-analysis/force-analysis.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { ThermoComponent } from './thermo/thermo.component';
-import { BitOperatorComponent } from './assembly/bit-operator/bit-operator.component';
-import { AssemblyComponent } from './assembly/assembly.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AssemblyComponent } from './assembly/assembly.component';
     MatListModule,
     MatTableModule,
     MatInputModule,
+    MatSelectModule,
   ],
   providers: [DecimalPipe],
   bootstrap: [AppComponent]

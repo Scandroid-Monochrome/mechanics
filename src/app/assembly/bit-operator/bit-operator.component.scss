@@ -1,20 +1,12 @@
 td {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   text-align: center;
   vertical-align: middle;
   border: 1px solid blue;
 }
 
-td:hover {
-  cursor: grab;
+td.number, td.unary-operator {
+  border: 0px;
+  width: auto;
 }
-
-td.active {
-  background-color: #F5FFFF;
-}
-
-td.inactive {
-  background-color: #FFFFFF;
-  cursor: none;
-}  
