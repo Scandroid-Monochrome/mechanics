@@ -1,0 +1,18 @@
+<table *ngIf="binary$ | async as binary">
+  <tr>
+    <td *ngFor="let i of range">
+      <div>{{binary[i]}}</div>
+    </td>
+  </tr>
+</table>
+<div>
+  <mat-form-field>
+    <input
+      type="number"
+      class="form-control"
+      matInput
+      name="integer"
+      placeholder="Enter an integer"
+      [formControl]="numberInput">
+  </mat-form-field>
+</div>

@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
@@ -25,6 +26,8 @@ import { KinematicsComponent } from './mechanics/animation/kinematics/kinematics
 import { ForceAnalysisComponent } from './mechanics/force-analysis/force-analysis.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { ThermoComponent } from './thermo/thermo.component';
+import { BitOperatorComponent } from './assembly/bit-operator/bit-operator.component';
+import { AssemblyComponent } from './assembly/assembly.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { ThermoComponent } from './thermo/thermo.component';
     AnimationComponent,
     KinematicsComponent,
     Magic15Component,
-    AiComponent
+    AiComponent,
+    BitOperatorComponent,
+    AssemblyComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ import { ThermoComponent } from './thermo/thermo.component';
     MatButtonModule,
     MatListModule,
     MatTableModule,
+    MatInputModule,
   ],
   providers: [DecimalPipe],
   bootstrap: [AppComponent]
